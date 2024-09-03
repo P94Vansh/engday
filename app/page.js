@@ -12,8 +12,8 @@ export default function Home() {
     backgroundRepeat: 'no-repeat',
     height: '80vh', // Adjust as needed
     width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center'
+    // alignItems: 'center',
+    // justifyContent: 'center'
 
   };
   const backgroundImageStyle2 = {
@@ -41,12 +41,20 @@ export default function Home() {
     { title: "Engineer's Got Talent", src: "talent.jfif", href: "/event/engineers-got-talent" },
     { title: "Character Clash", src: "cosplay.jfif", href: "/event/character-clash" }
   ];
-  
+  const para=`Welcome to the forefront of Engineering Innovation at Uttaranchal Institute of Technology (UIT), Uttaranchal University, Dehradun.
+        Dear Students, Faculties and Guests,
+        In today's ever-evolving technological realm, engineering plays a pivotal role in driving transformative changes across the globe. As the Dean of the Uttaranchal Institute of Technology (UIT) at Uttaranchal University Dehradun, I am excited to outline our vision and dedication to advancing technologies that will shape our future.
+        Prof. (Dr.) Sumit Chaudhary
+        Director, Uttaranchal Institute of Technology`
   const faqcontent = [{ ques: "What is Engineer's Day?", ans: "A day to celebrate engineering with fun events!" }, { ques: "How do I register for events?", ans: "Fill out the registration link, it's easy!" }, { ques: "What events are happening this year?", ans: "Fun run, Code War, Web War, and more!" }, { ques: "Can I bring my friends?", ans: "Absolutely! The more, the merrier!" }]
   const eventref = useRef()
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-5" style={backgroundImageStyle}>
+      <div className="flex flex-col items-center justify-center gap-5 relative" style={backgroundImageStyle}>
+        <div className="flex justify-between p-4 w-full">
+          <img src="./uit logo.png" className="md:w-[8vw] w-[30vw] absolute top-4 left-2" alt="logo" />
+          <img src="./UU-New-Logo.png" className="md:w-[15vw] w-[50vw] bg-white p-3 rounded-xl absolute top-5 right-2" alt="logo" />
+          </div>
         <div className="font-bold text-white font-sans text-5xl md:text-8xl">  Engineer&apos;s Day </div>
         <div className=" text-white font-serif md:text-4xl">Unleash Your Inner Genius and Joint the Fun!</div>
         <button className="border-white border-2 font-bold text-xl py-2 px-3 bg-transparent text-white rounded-3xl" onClick={() => {
@@ -54,6 +62,13 @@ export default function Home() {
             behavior: 'smooth'
           })
         }}>Explore the events</button>
+      </div>
+      <div className="md:flex-row sm:flex-row flex flex-col-reverse items-center justify-center text-justify py-7" style={{backgroundColor:"#f0f0f6"}}>
+     <div className="flex flex-col gap-5 "> {para.split('\n').map((item,ind)=> <div className="md:w-[60vw]
+     sm:w-[40vw] px-12 md:text-xl font-bold"  key={ind}>{item}</div> )} </div>
+      <div className="p-12">
+        <img className="md:w-[30vw] sm:w-[80vw] w-[75vw] h-[40vh] border-black border-2 rounded-full bg-blue-200 md:h-[63vh]" src="./deansir.png" alt="picture" />
+      </div>
       </div>
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 p-6 h-[120vh] sm:h-[82vh]" >
         <div className="md:flex md:flex-col items-center justify-center gap-3">
@@ -109,8 +124,7 @@ export default function Home() {
           <div> <img src="followus.jfif" alt="Image" className="w-[50vw] h-[70vh] rounded-xl" /></div>
         </div>
       </div>
-      <div className="text-center font-semibold text-2xl p-5 bg-black text-white">
-        &copy;2024 Engineers Day. All rights reserved.</div>
+
     </>
   );
 }
